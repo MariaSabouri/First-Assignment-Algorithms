@@ -36,7 +36,7 @@
     &quot;JUnit.Test3.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Maria__SD&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Maria__SD2&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Maria/term4/computer science/java_programing/HW/First-Assignment-Algorithms&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -51,7 +51,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Exercises2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Exercises2" />
       <module name="Second-Assignment-Algorithms" />
@@ -131,6 +131,7 @@
       <workItem from="1709192568585" duration="1649000" />
       <workItem from="1709200554310" duration="111000" />
       <workItem from="1709202068459" duration="6000" />
+      <workItem from="1709294323751" duration="33000" />
     </task>
     <servers />
   </component>
