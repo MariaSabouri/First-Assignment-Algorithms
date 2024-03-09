@@ -14,8 +14,19 @@ public class Exercises2 {
     */
 
     public int[] twoSum(int[] nums, int target) {
-        // TODO
-        return null;
+        List<int[]> arr=new ArrayList<int[]>();
+        for (int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j]==target) {
+                    int[] x=new int[2];
+                    x[0]=i;
+                    x[1]=j;
+                    arr.add(x);
+                }
+            }
+        }
+        //System.out.println(arr.get(0));
+        return arr.get(0);
     }
 
     /*
@@ -49,8 +60,36 @@ public class Exercises2 {
     */
 
     public int romanToInt(String s) {
-        // TODO
-        return 0;
+        int size=s.length();
+        int output=0;
+        for (int i=0;i<size;i++){
+            switch (s.charAt(i)){
+                case 'I':
+                    if(i+1!=size && (s.charAt(i+1)=='V' || s.charAt(i+1)=='X')){
+                        output-=1;
+                    }
+                    else output+=1;
+                    continue;
+                case 'X':
+                    if(i+1!=size &&(s.charAt(i+1)=='L' || s.charAt(i+1)=='C')){
+                        output-=10;
+                    }
+                    else output+=10;
+                    continue;
+                case 'C':
+                    if(i+1!=size &&(s.charAt(i+1)=='D' || s.charAt(i+1)=='M')){
+                        output-=100;
+                    }
+                    else output+=100;
+                    continue;
+                case 'V': output+=5;continue;
+                case 'L': output+=50;continue;
+                case 'D': output+=500;continue;
+                case 'M': output+=1000;
+            }
+        }
+        System.out.println(output);
+        return output;
     }
 
     /*
@@ -59,9 +98,54 @@ public class Exercises2 {
     */
 
     public List<List<Integer>> permute(int[] nums) {
-        // TODO
-        return null;
+        List<Integer> my_nums=new ArrayList<>();
+        for (int num : nums) {
+            my_nums.add(num);
+        }
+        List<List<Integer>> output = new ArrayList<List<Integer>>();
+        List<Integer> body=my_nums.subList(0,1);
+        output.add(body);
+        //System.out.println("first body"+body);
+        //System.out.println("first output"+output);
+        for (int i=1;i<my_nums.size();i++){
+
+            List<List<Integer>> output_copy = mkListListcopy(output);
+            //System.out.println("output_copy"+output_copy);
+            for (int x=output_copy.size()-1;x>=0 && output_copy.get(x).size()==i;x--){
+                body=output.get(x);
+                //System.out.println("body"+body);
+                for (int j=0;j<body.size()+1;j++){
+                    List<Integer> copy=mkcopy(body);
+                    copy.add(j,my_nums.get(i));
+                    //System.out.println("copy"+copy);
+                    output.add(copy);
+                }
+                //System.out.println("output"+output);
+            }
+        }
+        List<List<Integer>> Final_output=output.subList(output.size()-factorial(my_nums.size()),output.size());
+        System.out.println("YOUR HOLY PERMUTATION LIST!!\n"+Final_output);
+        return Final_output;
     }
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 2; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+    public static List<List<Integer>> mkListListcopy(List<List<Integer>> output){
+        return new ArrayList<List<Integer>>(output);
+    }
+
+    public static List<Integer> mkcopy(List<Integer> List){
+        List<Integer> x=new ArrayList<>();
+        for (int i=0;i<List.size();i++){
+            x.add(List.get(i));
+        }
+        return x;
+    }
+
 
     public static void main(String[] args) {
         // test your code here!
